@@ -23,7 +23,7 @@ within the existing text).
 The extension name is "Sscofpmf" ('Ss' for Privileged arch and Supervisor-level
 extensions, and 'cofpmf' for Count OverFlow and Privilege Mode Filtering).
 
-Note that the new count overflow interrupt will be treated as a standard local
+Note that the new count overflow interrupt will be treated as a standard edge-triggered local
 interrupt that is assigned to bit 13 in the mip/mie/sip/sie registers.
 
 == Machine Level Additions
