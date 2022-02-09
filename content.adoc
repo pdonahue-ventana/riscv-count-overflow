@@ -23,7 +23,7 @@ within the existing text).
 The extension name is "Sscofpmf" ('Ss' for Privileged arch and Supervisor-level
 extensions, and 'cofpmf' for Count OverFlow and Privilege Mode Filtering).
 
-Note that the new count overflow interrupt will be treated as a standard edge-triggered local
+Note that the new count overflow interrupt will be treated as a standard local
 interrupt that is assigned to bit 13 in the mip/mie/sip/sie registers.
 
 == Machine Level Additions
@@ -93,7 +93,7 @@ count overflow interrupt disable for the associated hpmcounter.
 Count overflow never results from writes to the mhpmcounter__n__ or
 mhpmevent__n__ registers, only from hardware increments of counter registers.
 
-This "count overflow interrupt request" signal is treated as a standard local
+This "count overflow interrupt request" signal is treated as a standard edge-triggered local
 interrupt that corresponds to bit 13 in the mip/mie/sip/sie registers. The
 mip/sip LCOFIP and mie/sie LCOFIE bits are respectively the interrupt-pending
 and interrupt-enable bits for this interrupt. ('LCOFI' represents 'Local Count
@@ -135,9 +135,9 @@ Figure 3.15 as bit 13.
 
 If the Sscofpmf extension is implemented, bits mip.LCOFIP and mie.LCOFIE are
 the interrupt-pending and interrupt-enable bits for local count overflow
-interrupts. LCOFIP is read-write in mip and reflects the occurrence of a local
-count overflow interrupt request resulting from any of the mhpmevent__n__.OF
-bits being set. If the Sscofpmf extension is not implemented, these LCOFIP and
+interrupts. LCOFIP is read-write in mip. It is set on the occurrence of a local
+count overflow interrupt request.
+If the Sscofpmf extension is not implemented, these LCOFIP and
 LCOFIE bits are hardwired to zeros.
 
 Multiple simultaneous interrupts destined for different privilege modes are
@@ -157,9 +157,9 @@ Figure 4.7 as bit 13.
 
 If the Sscofpmf extension is implemented, bits sip.LCOFIP and sie.LCOFIE are
 the interrupt-pending and interrupt-enable bits for local count overflow
-interrupts. LCOFIP is read-write in sip and reflects the occurrence of a local
-count overflow interrupt request resulting from any of the mhpmevent__n__.OF
-bits being set. If the Sscofpmf extension is not implemented, these LCOFIP and
+interrupts. LCOFIP is read-write in sip. It is set on the occurrence of a local
+count overflow interrupt request.
+If the Sscofpmf extension is not implemented, these LCOFIP and
 LCOFIE bits are hardwired to zeros.
 
 Each standard interrupt type (LCOFI, SEI, STI, or SSI) might not be implemented,
