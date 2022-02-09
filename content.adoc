@@ -102,7 +102,7 @@ Overflow Interrupt'.)
 Generation of a "count overflow interrupt request" by an hpmcounter sets the
 LCOFIP bit in the mip/sip registers and sets the associated OF bit. The mideleg
 register controls the delegation of this interrupt to S-mode versus M-mode. The
-LCOFIP bit is cleared by software before servicing the count overflow interrupt
+LCOFIP bit should be cleared by software before servicing the count overflow interrupt
 resulting from one or more count overflows.
 
 [NOTE]
@@ -162,7 +162,7 @@ count overflow interrupt request resulting from any of the mhpmevent__n__.OF
 bits being set. If the Sscofpmf extension is not implemented, these LCOFIP and
 LCOFIE bits are hardwired to zeros.
 
-Each standard interrupt type (LCOFI, SEI, STI, or SSI) may not be implemented,
+Each standard interrupt type (LCOFI, SEI, STI, or SSI) might not be implemented,
 in which case the corresponding interrupt-pending and interrupt-enable bits are
 hardwired to zeros. All bits in sip and sie are WARL fields.
 
