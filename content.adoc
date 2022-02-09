@@ -51,7 +51,7 @@ be used for event selection purposes.
 On RV32 only, accesses to the mcycle, minstret, mhpmcounter__n__, and
 mhpmevent__n__ CSRs access the low 32 bits, while accesses to the mcycleh,
 minstreth, mhpmcounter__n__h, and mhpmevent__n__h CSRs access bits 63–32 of the
-corresponding counter or event selector. The proposed CSR numbers for
+corresponding counter or event selector. The CSR numbers for
 mhpmevent__n__h are 0x723 - 0x73F.
 
 The following bits are added to mhpmevent:
@@ -175,7 +175,7 @@ This extension adds this new CSR.
 
 The scountovf CSR is a 32-bit read-only register that contains shadow copies of
 the OF bits in the 29 mhpmevent CSRs (mhpmevent__3__ - mhpmevent__31__) - where
-scountovf bit _X_ corresponds to mhpmevent__X__. The proposed CSR number is
+scountovf bit _X_ corresponds to mhpmevent__X__. The CSR number is
 0xDA0.
 
 This register enables supervisor-level overflow interrupt handler software to
